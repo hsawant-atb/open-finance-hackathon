@@ -59,6 +59,8 @@ class AccountDetailsScreen extends Component {
                         cardBalance={this.state.cardBalance}
                         accNumber={this.state.accNumber}
                         image={this.state.image} />
+
+                    <comp.Taskgroup />
                 </View>
             );
         }
