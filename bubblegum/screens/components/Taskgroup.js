@@ -36,19 +36,22 @@ class TaskGroup extends Component {
         //Do your API calls here
 
         const data = [] /* store the data in this object */
-        const parentId = ""
-        const childId = ""
+        const parentId = "c0849637-cd77-4f9d-8409-ed959dbc1093"
+        const childId = "a9213f5d-bfc8-487f-8242-0789bbcc2c20"
 
 
         const db = firebase.database().ref(`/${parentId}/${childId}/taskList`)
 
         db.once('value')
-            .then((snapshots) => {
-                snapshots.forEach((data) => {
+            .then(function (snapshots) {
+                console.log(snapshots)
+                console.log(Object.keys(snapshots))
+                snapshots.forEach(function (data) {
+                    console.log(1)
                     const taskId = data.key
                     const title = data.val().title
-                    const status  = data.val().staus
-                    const reward = data.val().reward/100
+                    const status = data.val().staus
+                    const reward = data.val().reward / 100
 
                     const record = {
                         taskId,
@@ -59,11 +62,13 @@ class TaskGroup extends Component {
 
                     data.push(record)
 
+                    console.log(record)
+
                 })
             })
 
 
-        console.log(data)
+        //console.log(data)
     }
 
 
@@ -74,12 +79,12 @@ class TaskGroup extends Component {
                 <FlatList
                     data={taskgroup}
                     renderItem={({ item }) =>
-                    <Task 
-                    taskTitle = {item.title}
-                    />
-                        }
+                        <Task
+                            taskTitle={item.title}
+                        />
+                    }
 
-                keyExtractor={(item) => item.taskId}
+                    keyExtractor={(item) => item.taskId}
                 />
             </View>
         );
