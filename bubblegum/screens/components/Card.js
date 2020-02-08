@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
+import { withOrientation } from "react-navigation";
 
 class Card extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      cardName: "",
+      cardName: "Jackson",
       cardBalance: "123",
       accNumber: "12321"
     };
@@ -50,9 +51,14 @@ class Card extends Component {
           }}
         >
           <View>
-            <Text>{this.props.cardName}</Text>
+            {/* <Text>{this.props.cardName}</Text>
             <Text>{this.props.cardBalance}</Text>
-            <Text>{this.props.accNumber}</Text>
+            <Text>{this.props.accNumber}</Text> */}
+            <Text style={styles.name}>Jackson</Text>
+            <View style={styles.cardDetails}>
+              <Text style={styles.number}>****1382</Text>
+              <Text style={styles.balance}>$54.00</Text>
+            </View>
             {/* <Text>{this.props.image}</Text> */}
           </View>
         </LinearGradient>
@@ -75,5 +81,24 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.2,
     shadowRadius: 5,
     elevation: 5
+  },
+  name: {
+    color: "white",
+    fontSize: 24,
+    textAlign: "right",
+    fontWeight: "bold"
+  },
+  balance: {
+    color: "white",
+    fontSize: 20
+  },
+  number: {
+    color: "white",
+    fontSize: 16
+  },
+  cardDetails: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "flex-end"
   }
 });
