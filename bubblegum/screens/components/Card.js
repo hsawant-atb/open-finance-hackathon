@@ -9,10 +9,11 @@ import { LinearGradient } from 'expo-linear-gradient';
 
 class Card extends Component {
 
-    constructor() {
-        this.state = {
+    constructor(props) {
+        super(props)
+        // this.state = {
             
-        }
+        // }
     }
 
     componentDidMount() {

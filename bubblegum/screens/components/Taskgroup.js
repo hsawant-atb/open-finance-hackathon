@@ -41,7 +41,7 @@ class TaskGroup extends Component {
                 <Text>Grades</Text>
                 <FlatList 
                 data={taskgroup}
-                renderItem={({item}) => }
+                // renderItem={({item}) => }
                 />
             </View>
         );
