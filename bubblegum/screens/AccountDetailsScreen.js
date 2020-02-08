@@ -34,20 +34,21 @@ class AccountDetailsScreen extends Component {
     // this.setState({ cardName: label });
   }
 
-  render() {
-    return (
-      <View style={styles.container}>
-        <comp.Card
-          cardName={this.state.cardName}
-          cardBalance={this.state.cardBalance}
-          accNumber={this.state.accNumber}
-          image={this.state.image}
-        />
-      </View>
-    );
-  }
-}
-export default AccountDetailsScreen;
+        render() {
+            return (
+                <View style={styles.container}>
+                    <comp.Card
+                        cardName={this.state.cardName}
+                        cardBalance={this.state.cardBalance}
+                        accNumber={this.state.accNumber}
+                        image={this.state.image} />
+
+                    <comp.Taskgroup />
+                </View>
+            );
+        }
+    }
+    export default AccountDetailsScreen;
 
 const styles = StyleSheet.create({
   container: {

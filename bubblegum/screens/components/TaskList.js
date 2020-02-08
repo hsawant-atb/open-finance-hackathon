@@ -6,6 +6,8 @@ import {
     FlatList
 } from "react-native";
 
+const TaskList 
+
 class TaskList extends Component {
 
 
