@@ -1,12 +1,21 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { createStackNavigator } from 'react-navigation-stack';
-import { createAppContainer, createSwitchNavigator } from 'react-navigation';
+import React from "react";
+import { StyleSheet, Text, View } from "react-native";
+import { createStackNavigator } from "react-navigation-stack";
+import { createAppContainer, createSwitchNavigator } from "react-navigation";
 
-import * as screens from './screens/index'
+import { AsyncStorage } from "react-native";
+try {
+  AsyncStorage.setItem(
+    "token",
+    "eyJhbGciOiJIUzI1NiJ9.eyIiOiIifQ.Oie-mWgcxEJ69LZhKOXa-QQg3yEIZyrLooDrCaXG3Ws"
+  );
+} catch (error) {
+  // Error saving data
+}
 
-import * as firebase from 'firebase'
+import * as screens from "./screens/index";
 
+import * as firebase from "firebase";
 
 var firebaseConfig = {
   apiKey: "AIzaSyDpoN-n4XJRTwhrvQcg0eXbjqk7VUMJfn8",
@@ -21,7 +30,7 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 /* DISBALE YELLOW BOX WARNING */
-console.disableYellowBox = true
+console.disableYellowBox = true;
 
 // export default function App() {
 //   return (
@@ -31,50 +40,56 @@ console.disableYellowBox = true
 //   );
 // }
 
-const ParentStack = createStackNavigator({
-  Overview: screens.OverviewScreen, 
-  AccountDetails: screens.AccountDetailsScreen
-},
-{
-  headerMode: 'none',
-  navigationOptions: {
-    headerVisible: false,
+const ParentStack = createStackNavigator(
+  {
+    Overview: screens.OverviewScreen,
+    AccountDetails: screens.AccountDetailsScreen
+  },
+  {
+    headerMode: "none",
+    navigationOptions: {
+      headerVisible: false
+    }
   }
-})
+);
 
-const ChildStack = createStackNavigator({
-  AccountDetails: screens.AccountDetailsScreen
-},
-{
-  headerMode: 'none',
-  navigationOptions: {
-    headerVisible: false,
+const ChildStack = createStackNavigator(
+  {
+    AccountDetails: screens.AccountDetailsScreen
+  },
+  {
+    headerMode: "none",
+    navigationOptions: {
+      headerVisible: false
+    }
   }
-})
+);
 
-const AuthStack = createStackNavigator({
-  Welcome: screens.WelcomeScreen,
-  Parent: ParentStack,
-  Child: ChildStack
-},
-{
-  headerMode: 'none',
-  navigationOptions: {
-    headerVisible: false,
+const AuthStack = createStackNavigator(
+  {
+    Welcome: screens.WelcomeScreen,
+    Parent: ParentStack,
+    Child: ChildStack
+  },
+  {
+    headerMode: "none",
+    navigationOptions: {
+      headerVisible: false
+    }
   }
-})
+);
 
 export default createAppContainer(
   createSwitchNavigator({
     Auth: AuthStack
   }),
   {
-    headerMode: 'none',
+    headerMode: "none",
     navigationOptions: {
-      headerVisible: false,
+      headerVisible: false
     }
   }
-)
+);
 
 // const styles = StyleSheet.create({
 //   container: {
