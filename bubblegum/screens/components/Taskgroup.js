@@ -3,10 +3,6 @@ import { View, Text, StyleSheet, FlatList } from "react-native";
 
 import Task from "./Task";
 
-import * as firebase from "firebase";
-
-import * as global from "../global";
-
 const bart = [
   {
     reward: 10.0,

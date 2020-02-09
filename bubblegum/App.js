@@ -15,21 +15,7 @@ import { AsyncStorage } from "react-native";
 
 import * as screens from "./screens/index";
 
-import * as firebase from "firebase";
-
-global.foo = "suhhhhhhh"
-
-var firebaseConfig = {
-  apiKey: "AIzaSyDpoN-n4XJRTwhrvQcg0eXbjqk7VUMJfn8",
-  authDomain: "bubblegum-d837c.firebaseapp.com",
-  databaseURL: "https://bubblegum-d837c.firebaseio.com",
-  projectId: "bubblegum-d837c",
-  storageBucket: "bubblegum-d837c.appspot.com",
-  messagingSenderId: "447478923243",
-  appId: "1:447478923243:web:5adac50b4505a0ca3d23ae"
-};
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+global.foo = "suhhhhhhh";
 
 /* DISBALE YELLOW BOX WARNING */
 console.disableYellowBox = true;
