@@ -4,18 +4,20 @@ import { createStackNavigator } from "react-navigation-stack";
 import { createAppContainer, createSwitchNavigator } from "react-navigation";
 
 import { AsyncStorage } from "react-native";
-try {
-  AsyncStorage.setItem(
-    "token",
-    "eyJhbGciOiJIUzI1NiJ9.eyIiOiIifQ.Oie-mWgcxEJ69LZhKOXa-QQg3yEIZyrLooDrCaXG3Ws"
-  );
-} catch (error) {
-  // Error saving data
-}
+// try {
+//   AsyncStorage.setItem(
+//     "token",
+//     "eyJhbGciOiJIUzI1NiJ9.eyIiOiIifQ.Oie-mWgcxEJ69LZhKOXa-QQg3yEIZyrLooDrCaXG3Ws"
+//   );
+// } catch (error) {
+//   // Error saving data
+// }
 
 import * as screens from "./screens/index";
 
 import * as firebase from "firebase";
+
+global.foo = "suhhhhhhh"
 
 var firebaseConfig = {
   apiKey: "AIzaSyDpoN-n4XJRTwhrvQcg0eXbjqk7VUMJfn8",

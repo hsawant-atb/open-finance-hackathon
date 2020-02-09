@@ -43,7 +43,8 @@ class AccountDetailsScreen extends Component {
                         accNumber={this.state.accNumber}
                         image={this.state.image} />
 
-                    <comp.Taskgroup />
+                    {/* <comp.Taskgroup /> */}
+                    <comp.TransactionList />
                 </View>
             );
         }

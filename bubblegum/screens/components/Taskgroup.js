@@ -32,44 +32,44 @@ class TaskGroup extends Component {
     }
 
 
-    componentDidMount() {
-        //Do your API calls here
+    // componentDidMount() {
+    //     //Do your API calls here
 
-        const data = [] /* store the data in this object */
-        const parentId = "c0849637-cd77-4f9d-8409-ed959dbc1093"
-        const childId = "a9213f5d-bfc8-487f-8242-0789bbcc2c20"
-
-
-        const db = firebase.database().ref(`/${parentId}/${childId}/taskList`)
-
-        db.once('value')
-            .then(function (snapshots) {
-                console.log(snapshots)
-                console.log(Object.keys(snapshots))
-                snapshots.forEach(function (data) {
-                    console.log(1)
-                    const taskId = data.key
-                    const title = data.val().title
-                    const status = data.val().staus
-                    const reward = data.val().reward / 100
-
-                    const record = {
-                        taskId,
-                        title,
-                        status,
-                        reward
-                    }
-
-                    data.push(record)
-
-                    console.log(record)
-
-                })
-            })
+    //     const data = [] /* store the data in this object */
+    //     const parentId = "c0849637-cd77-4f9d-8409-ed959dbc1093"
+    //     const childId = "a9213f5d-bfc8-487f-8242-0789bbcc2c20"
 
 
-        //console.log(data)
-    }
+    //     const db = firebase.database().ref(`/${parentId}/${childId}/taskList`)
+
+    //     db.once('value')
+    //         .then(function (snapshots) {
+    //             console.log(snapshots)
+    //             console.log(Object.keys(snapshots))
+    //             snapshots.forEach(function (data) {
+    //                 //console.log(1)
+    //                 const taskId = data.key
+    //                 const title = data.val().title
+    //                 const status = data.val().staus
+    //                 const reward = data.val().reward / 100
+
+    //                 const record = {
+    //                     taskId,
+    //                     title,
+    //                     status,
+    //                     reward
+    //                 }
+
+    //                 data.push(record)
+
+    //                 //console.log(record)
+
+    //             })
+    //         })
+
+
+    //     //console.log(data)
+    // }
 
 
     render() {
