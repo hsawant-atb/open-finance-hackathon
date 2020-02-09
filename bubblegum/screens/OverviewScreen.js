@@ -6,6 +6,10 @@ import {
     SafeAreaView
 } from "react-native";
 
+import Carousel from 'react-native-carousel'
+
+import * as comp from './components/index'
+
 class OverviewScreen extends Component {
 
     constructor(props) {
@@ -21,7 +25,8 @@ class OverviewScreen extends Component {
             <SafeAreaView style={styles.container}>
                 <View style={{
                     flexDirection: 'row',
-                    justifyContent: 'space-between'
+                    justifyContent: 'space-between',
+                    marginHorizontal: 20
                 }}>
                     <View>
                         <Text
@@ -46,13 +51,15 @@ class OverviewScreen extends Component {
                     >
                     </View>
                 </View>
-                <Text 
-                 style={{
-                    fontFamily: 'sf-rounded-heavy',
-                    fontSize: 25,
-                    marginVertical: 25
-                }}
+                <Text
+                    style={{
+                        fontFamily: 'sf-rounded-heavy',
+                        fontSize: 30,
+                        marginVertical: 25, 
+                        marginHorizontal: 20
+                    }}
                 >Childen</Text>
+                <comp.ChildrenCarousel />
             </SafeAreaView>
         );
     }
@@ -62,9 +69,16 @@ export default OverviewScreen;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        marginHorizontal: 20,
+        //marginHorizontal: 20,
         marginTop: 80
         // alignItems: 'center',
         // justifyContent: 'center'
+    },
+    c: {
+        width: 375,
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: 'transparent',
     }
 });

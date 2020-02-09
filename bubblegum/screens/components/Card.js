@@ -52,7 +52,8 @@ class Card extends Component {
     componentDidMount() {
         //Get card name 
         //const token = "eyJhbGciOiJIUzI1NiJ9.eyIiOiIifQ.Oie-mWgcxEJ69LZhKOXa-QQg3yEIZyrLooDrCaXG3Ws"
-        const id = 'a9213f5d-bfc8-487f-8242-0789bbcc2c20'
+        //const id = 'a9213f5d-bfc8-487f-8242-0789bbcc2c20'
+        const id = this.props.id
         const url = `https://api.leapos.ca/obp/v4.0.0/my/banks/3056a117b6bf9e42fb96b02d3513a66/accounts/${id}/account`
 
 
@@ -91,7 +92,7 @@ class Card extends Component {
                 <LinearGradient
                     colors={["#CC2B5E", "#753A88"]}
                     style={{
-                        width: 280,
+                        width: 284,
                         height: 170,
                         borderRadius: 20,
                         padding: 20
@@ -113,7 +114,7 @@ export default Card;
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        //flex: 1,
         alignItems: "center",
         justifyContent: "center",
         shadowColor: "#000",
@@ -123,7 +124,8 @@ const styles = StyleSheet.create({
         },
         shadowOpacity: 0.2,
         shadowRadius: 5,
-        elevation: 5
+        elevation: 5,
+        marginHorizontal: 30
     },
     name: {
         color: "white",

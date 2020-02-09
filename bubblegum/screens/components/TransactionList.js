@@ -120,7 +120,7 @@ class TransactionList extends Component {
                     fontFamily: 'sf-rounded-heavy',
                     fontSize: 30
                 }}
-                >TransactionList</Text>
+                >Transactions</Text>
                 <FlatList
                     data={transactions}
                     showsHorizontalScrollIndicator={false}
