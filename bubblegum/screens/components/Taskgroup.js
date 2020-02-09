@@ -33,11 +33,11 @@ const lisa = [
   {
     reward: 15.0,
     status: 0,
-    title: "Take Out Garbage"
+    title: "Garbage"
   }
 ];
-
-let taskGroups = [];
+// TODO: clean
+let taskGroups = lisa;
 
 class TaskGroup extends Component {
   constructor(props) {
@@ -46,7 +46,7 @@ class TaskGroup extends Component {
 
   componentDidMount() {
     // TODO: add props
-    taskGroups = lisa;
+    // taskGroups = lisa;
   }
 
   render() {
@@ -54,9 +54,9 @@ class TaskGroup extends Component {
       <View style={styles.container}>
         <Text style={styles.title}>Grades</Text>
         <FlatList
+          style={styles.taskList}
           data={taskGroups}
-          renderItem={({ item }) => <Task taskTitle={item.title} />}
-          //   keyExtractor={item => item.taskId}
+          renderItem={({ item }) => <Task task={item} />}
         />
       </View>
     );
@@ -76,8 +76,11 @@ const styles = StyleSheet.create({
     borderRadius: 20
   },
   title: {
-    fontSize: 24,
+    fontSize: 28,
     fontWeight: "bold",
     padding: 20
+  },
+  taskList: {
+    padding: 10
   }
 });

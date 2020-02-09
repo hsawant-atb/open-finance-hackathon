@@ -6,8 +6,7 @@ module.exports = {
   c2id: "c9c18d5e-8af0-416b-9693-639bc0eb8826",
   getAccounts,
   getAccountById,
-  getTransactions,
-  getTasks
+  getTransactions
 };
 
 function getAccounts() {
@@ -3605,44 +3604,4 @@ function getTransactions(id) {
   } else {
     return transactionsFound;
   }
-}
-function getTasks(id) {
-  let tasks = {
-    "c9c18d5e-8af0-416b-9693-639bc0eb8826": {
-      taskList: {
-        fww34tq34f: {
-          reward: 10.0,
-          status: 0,
-          title: "Clean Room"
-        },
-        dfqe343fs2: {
-          reward: 10.0,
-          status: 0,
-          title: "Dishes"
-        }
-      }
-    },
-    "a9213f5d-bfc8-487f-8242-0789bbcc2c20": {
-      taskList: {
-        fww34tq34f: {
-          reward: 25.0,
-          status: 0,
-          title: "A+ in math"
-        },
-        dfqe343fs2: {
-          reward: 10.0,
-          status: 0,
-          title: "Dishes"
-        },
-        fa43ffqe3: {
-          reward: 15.0,
-          status: 0,
-          title: "Take Out Garbage"
-        }
-      }
-    }
-  };
-
-  const taskFound = tasks[id];
-  return !taskFound ? "an error" : taskFound;
 }
