@@ -16,7 +16,8 @@ let bart = {
   },
   account_attributes: {
     goal: "$10.00",
-    spent: "$83.98"
+    spent: "$83.98",
+    total: "-$3.98"
   }
 };
 let lisa = {
@@ -28,7 +29,8 @@ let lisa = {
   },
   account_attributes: {
     goal: "$30.00",
-    spent: "$110.99"
+    spent: "$110.99",
+    total: "$40.00"
   }
 };
 

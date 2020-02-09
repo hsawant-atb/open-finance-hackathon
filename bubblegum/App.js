@@ -19,6 +19,14 @@ const ParentStack = createStackNavigator(
   { headerMode: "none" }
 );
 
+const ProgressStack = createStackNavigator(
+  {
+    ProgressDetails: screens.ProgressDetails,
+    AccountDetails: screens.AccountDetailsScreen
+  },
+  { headerMode: "none" }
+);
+
 const TransactionStack = createStackNavigator(
   {
     TransactionDetails: screens.TransactionDetails,
@@ -30,7 +38,8 @@ const TransactionStack = createStackNavigator(
 const ChildStack = createStackNavigator(
   {
     AccountDetails: screens.AccountDetailsScreen,
-    Transactions: screens.TransactionDetails
+    Transactions: screens.TransactionDetails,
+    Progress: screens.ProgressDetails
   },
   { headerMode: "none" }
 );

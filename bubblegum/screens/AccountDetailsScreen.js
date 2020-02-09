@@ -8,13 +8,8 @@ import * as comp from "./components/index";
 class AccountDetailsScreen extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      cardName: "",
-      cardBalance: "123",
-      accNumber: "12321",
-      image: "lolol"
-    };
+    console.log(props);
+    this.state = {};
   }
 
   render() {
@@ -24,7 +19,6 @@ class AccountDetailsScreen extends Component {
           cardName={this.state.cardName}
           cardBalance={this.state.cardBalance}
           accNumber={this.state.accNumber}
-          image={this.state.image}
         />
         <View style={styles.buttonContainer}>
           {/* TODO: add border to button to match card border */}
@@ -32,6 +26,14 @@ class AccountDetailsScreen extends Component {
             title="Transactions"
             color="#753A88"
             onPress={() => this.props.navigation.navigate("Transactions")}
+          />
+        </View>
+        <View style={styles.buttonContainer}>
+          {/* TODO: add border to button to match card border */}
+          <Button
+            title="Progress"
+            color="#aa316e"
+            onPress={() => this.props.navigation.navigate("Progress")}
           />
         </View>
         <comp.Taskgroup />
@@ -48,8 +50,7 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   buttonContainer: {
-    marginBottom: 50,
-    marginTop: 2,
+    marginTop: 10,
     width: 280
   }
 });

@@ -64,8 +64,8 @@ const styles = StyleSheet.create({
     width: 380,
     shadowOpacity: 1,
     elevation: 10,
-    borderRadius: 20,
-    marginTop: 50
+    marginTop: 30,
+    borderRadius: 20
   },
   title: {
     fontSize: 28,

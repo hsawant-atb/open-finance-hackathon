@@ -10,9 +10,10 @@ const Task = props => {
         <Text style={styles.taskText}>${props.task.reward}.00</Text>
       </View>
       <Button
+        // TODO: round button and align text
         style={styles.taskButton}
         title="Complete"
-        color="#d0bbec"
+        color="#aa316e"
         onPress={() => Alert.alert("Completed :)")}
       />
     </View>
