@@ -3644,9 +3644,5 @@ function getTasks(id) {
   };
 
   const taskFound = tasks[id];
-  if (!taskFound) {
-    return "an error";
-  } else {
-    return taskFound;
-  }
+  return !taskFound ? "an error" : taskFound;
 }

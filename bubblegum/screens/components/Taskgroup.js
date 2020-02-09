@@ -7,6 +7,36 @@ import * as firebase from "firebase";
 
 import * as global from "../global";
 
+const bart = [
+  {
+    reward: 10.0,
+    status: 0,
+    title: "Clean Room"
+  },
+  {
+    reward: 10.0,
+    status: 0,
+    title: "Dishes"
+  }
+];
+const lisa = [
+  {
+    reward: 25.0,
+    status: 0,
+    title: "A+ in math"
+  },
+  {
+    reward: 10.0,
+    status: 0,
+    title: "Dishes"
+  },
+  {
+    reward: 15.0,
+    status: 0,
+    title: "Take Out Garbage"
+  }
+];
+
 let taskGroups = [];
 
 class TaskGroup extends Component {
@@ -16,37 +46,7 @@ class TaskGroup extends Component {
 
   componentDidMount() {
     // TODO: add props
-
-    let res = global.getTasks("a9213f5d-bfc8-487f-8242-0789bbcc2c20");
-    let keys = Object.keys(res);
-    keys.forEach(key => {
-      taskGroups.push(res[key]);
-    });
-
-    console.log(taskGroups);
-    //Do your API calls here
-    // const data = []; /* store the data in this object */
-    // const parentId = "c0849637-cd77-4f9d-8409-ed959dbc1093";
-    // const childId = "a9213f5d-bfc8-487f-8242-0789bbcc2c20";
-    // const db = firebase.database().ref(`/${parentId}/${childId}/taskList`);
-    // db.once("value").then(function(snapshots) {
-    //   console.log(snapshots);
-    //   console.log(Object.keys(snapshots));
-    //   snapshots.forEach(function(data) {
-    //     //console.log(1)
-    //     const taskId = data.key;
-    //     const title = data.val().title;
-    //     const status = data.val().staus;
-    //     const reward = data.val().reward / 100;
-    //     const record = {
-    //       taskId,
-    //       title,
-    //       status,
-    //       reward
-    //     };
-    //     data.push(record);
-    //   });
-    // });
+    taskGroups = lisa;
   }
 
   render() {
@@ -56,7 +56,7 @@ class TaskGroup extends Component {
         <FlatList
           data={taskGroups}
           renderItem={({ item }) => <Task taskTitle={item.title} />}
-          keyExtractor={item => item.taskId}
+          //   keyExtractor={item => item.taskId}
         />
       </View>
     );
