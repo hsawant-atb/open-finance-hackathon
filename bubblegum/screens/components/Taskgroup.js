@@ -3,17 +3,44 @@ import { View, Text, StyleSheet, FlatList } from "react-native";
 
 import Task from "./Task";
 
-import * as firebase from "firebase";
-
-import * as global from "../global";
-
-let taskGroups = [];
+const bart = [
+  {
+    reward: 10.0,
+    status: 0,
+    title: "Clean Room"
+  },
+  {
+    reward: 10.0,
+    status: 0,
+    title: "Dishes"
+  }
+];
+const lisa = [
+  {
+    reward: 25.0,
+    status: 0,
+    title: "A+ in math"
+  },
+  {
+    reward: 10.0,
+    status: 0,
+    title: "Dishes"
+  },
+  {
+    reward: 15.0,
+    status: 0,
+    title: "Garbage"
+  }
+];
+// TODO: add props
+let taskGroups = lisa;
 
 class TaskGroup extends Component {
   constructor(props) {
     super(props);
   }
 
+<<<<<<< HEAD
   componentDidMount() {
     // TODO: add props
 
@@ -49,14 +76,16 @@ class TaskGroup extends Component {
     // });
   }
 
+=======
+>>>>>>> 4e66d2c4b7a5edf7de824075bef17f5febf39653
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.title}>Grades</Text>
+        <Text style={styles.title}>Tasks</Text>
         <FlatList
+          style={styles.taskList}
           data={taskGroups}
-          renderItem={({ item }) => <Task taskTitle={item.title} />}
-          keyExtractor={item => item.taskId}
+          renderItem={({ item }) => <Task task={item} />}
         />
       </View>
     );
@@ -73,11 +102,16 @@ const styles = StyleSheet.create({
     width: 380,
     shadowOpacity: 1,
     elevation: 10,
+    marginTop: 30,
     borderRadius: 20
   },
   title: {
-    fontSize: 24,
+    fontSize: 28,
     fontWeight: "bold",
-    padding: 20
+    marginBottom: 5,
+    marginTop: 30
+  },
+  taskList: {
+    padding: 10
   }
 });
