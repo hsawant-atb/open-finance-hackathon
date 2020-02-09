@@ -33,7 +33,7 @@ class OverviewScreen extends Component {
                         <Text
                             style={{
                                 fontFamily: 'sf-rounded-heavy',
-                                fontSize: 40
+                                fontSize: 45
                             }}
                         >${this.state.parentBalance}</Text>
                     </View>
@@ -44,9 +44,15 @@ class OverviewScreen extends Component {
                             backgroundColor: 'salmon'
                         }}
                     >
-
                     </View>
                 </View>
+                <Text 
+                 style={{
+                    fontFamily: 'sf-rounded-heavy',
+                    fontSize: 25,
+                    marginVertical: 25
+                }}
+                >Childen</Text>
             </SafeAreaView>
         );
     }
