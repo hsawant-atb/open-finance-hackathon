@@ -14,7 +14,8 @@ class Card extends Component {
         this.state = {
             cardName: "",
             cardBalance: "",
-            accNumber: ""
+            accNumber: "",
+            accId: ""
         };
     }
 
@@ -75,11 +76,13 @@ class Card extends Component {
                 const label = res.data.label;
                 const number = res.data.number;
                 const balance = res.data.balance.amount;
+                const accId = res.data.id
 
 
                 this.setState({ cardName: label })
                 this.setState({ accNumber: number });
                 this.setState({ cardBalance: balance });
+                this.setState({ accId: accId})
 
             })
 
@@ -88,7 +91,7 @@ class Card extends Component {
 
     render() {
         return (
-            <TouchableOpacity style={styles.container}>
+            <TouchableOpacity style={styles.container} onPress={() => alert(this.state.accId)}>
                 <LinearGradient
                     colors={["#CC2B5E", "#753A88"]}
                     style={{

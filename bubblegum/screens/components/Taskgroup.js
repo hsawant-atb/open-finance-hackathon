@@ -23,7 +23,7 @@ class TaskGroup extends Component {
       taskGroups.push(res[key]);
     });
 
-    console.log(taskGroups);
+    console.log(JSON.parse(res));
     //Do your API calls here
     // const data = []; /* store the data in this object */
     // const parentId = "c0849637-cd77-4f9d-8409-ed959dbc1093";
