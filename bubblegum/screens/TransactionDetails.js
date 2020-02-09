@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet, Button } from "react-native";
-import axios from "axios";
-import { AsyncStorage } from "react-native";
 
 import * as comp from "./components/index";
 
-class AccountDetailsScreen extends Component {
+class TransactionDetails extends Component {
   constructor(props) {
     super(props);
 
@@ -20,29 +18,22 @@ class AccountDetailsScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <comp.Card
+        <View style={styles.buttonContainer}>
+          <Button title="Back" color="#753A88" />
+        </View>
+
+        <comp.TransactionHeader
           cardName={this.state.cardName}
           cardBalance={this.state.cardBalance}
           accNumber={this.state.accNumber}
           image={this.state.image}
         />
-        <View style={styles.buttonContainer}>
-          {/* TODO: add border to button to match card border */}
-          <Button title="Transactions" color="#753A88" />
-        </View>
-        {/* <comp.TransactionHeader
-          cardName={this.state.cardName}
-          cardBalance={this.state.cardBalance}
-          accNumber={this.state.accNumber}
-          image={this.state.image}
-        /> */}
-        <comp.Taskgroup />
-        {/* <comp.TransactionList /> */}
+        <comp.TransactionList />
       </View>
     );
   }
 }
-export default AccountDetailsScreen;
+export default TransactionDetails;
 
 const styles = StyleSheet.create({
   container: {
