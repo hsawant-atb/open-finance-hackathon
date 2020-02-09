@@ -60,7 +60,7 @@ class Card extends Component {
         };
     }
 
-    componentDidMount(){
+    componentDidMount() {
         //this.setState({child: this.props.child})
     }
 
@@ -88,29 +88,33 @@ class Card extends Component {
                         }}
                     >
                         <Text style={styles.name}>{this.state.cardName}</Text>
-                        <Text style={styles.balance}>{this.state.cardBalance}</Text>
+                        <View>
+                            <Text style={{color: 'white', fontSize:10, fontFamily:'sf-rounded-semibold'}}>Total Balance</Text>
+                            <Text style={styles.balance}>{this.state.cardBalance}</Text>
+                        </View>
                     </View>
                     <View
-                        style={{ 
+                        style={{
                             flex: 1,
-                        justifyContent: 'space-between',
-                        alignItems: 'center' }}
+                            justifyContent: 'space-between',
+                            alignItems: 'center'
+                        }}
                     >
                         <Image
-                            style={{width: 95, height: 95, borderRadius: 60/ 2}}
+                            style={{ width: 95, height: 95, borderRadius: 60 / 2 }}
                             resizeMode='contain'
-                                // style={{
-                                //     flex: 1,
-                                //     alignSelf: 'center',
-                                //     //marginTop: 80,
-                                //     resizeMode: 'contain',
-                                //     //width: Dimensions.get('screen').width,
-                                //     //backgroundColor: 'pink'
-                                //     // borderWidth: 1,
-                                //     // borderRadius: 75
-                                // }}
-                                source={pic}
-                            />
+                            // style={{
+                            //     flex: 1,
+                            //     alignSelf: 'center',
+                            //     //marginTop: 80,
+                            //     resizeMode: 'contain',
+                            //     //width: Dimensions.get('screen').width,
+                            //     //backgroundColor: 'pink'
+                            //     // borderWidth: 1,
+                            //     // borderRadius: 75
+                            // }}
+                            source={pic}
+                        />
                         <Text style={styles.number}>{this.state.accNumber}</Text>
                     </View>
                     {/* <View>
@@ -152,12 +156,12 @@ const styles = StyleSheet.create({
     },
     balance: {
         color: "white",
-        fontSize: 20,
+        fontSize: 30,
         fontFamily: 'sf-rounded-heavy'
     },
     number: {
         color: "white",
-        fontSize: 16,
+        fontSize: 10,
         fontFamily: 'sf-rounded-heavy'
     },
     cardDetails: {
