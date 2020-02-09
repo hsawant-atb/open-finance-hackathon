@@ -32,20 +32,7 @@ let lisa = {
   }
 };
 
-let marge = {
-  label: "Marge Simpson",
-  number: "****2240",
-  balance: {
-    currency: "CAD",
-    amount: "700.00"
-  },
-  account_attributes: {
-    goal: "$0.00",
-    spent: "$110.99"
-  }
-};
-
-class Card extends Component {
+class TransactionHeader extends Component {
   constructor(props) {
     super(props);
 
@@ -60,28 +47,19 @@ class Card extends Component {
   render() {
     return (
       <TouchableOpacity style={styles.container}>
-        <LinearGradient
-          colors={["#CC2B5E", "#753A88"]}
-          style={{
-            width: 284,
-            height: 170,
-            borderRadius: 20,
-            padding: 20
-          }}
-        >
-          <View>
-            <Text style={styles.name}>{this.state.cardName}</Text>
-            <View style={styles.cardDetails}>
-              <Text style={styles.number}>{this.state.accNumber}</Text>
-              <Text style={styles.balance}>{this.state.cardBalance}</Text>
-            </View>
+        <View>
+          <Text style={styles.title}>Chequing Account</Text>
+          <Text style={styles.number}>Balance</Text>
+          <View style={styles.headerDetails}>
+            <Text style={styles.balance}>{this.state.cardBalance}</Text>
+            <Text style={styles.number}>{this.state.accNumber}</Text>
           </View>
-        </LinearGradient>
+        </View>
       </TouchableOpacity>
     );
   }
 }
-export default Card;
+export default TransactionHeader;
 
 const styles = StyleSheet.create({
   container: {
@@ -97,24 +75,27 @@ const styles = StyleSheet.create({
     shadowRadius: 5,
     elevation: 5,
     marginHorizontal: 30,
-    marginTop: 50
+    marginTop: 50,
+    marginBottom: 50
   },
-  name: {
-    color: "white",
-    fontSize: 24,
-    textAlign: "right",
-    fontWeight: "bold"
+  title: {
+    color: "black",
+    fontFamily: "sf-rounded-heavy",
+    fontSize: 42
   },
   balance: {
-    color: "white",
+    color: "black",
+    fontFamily: "sf-rounded-heavy",
     fontSize: 20
   },
   number: {
-    color: "white",
+    color: "black",
+    fontFamily: "sf-rounded-heavy",
     fontSize: 16
   },
-  cardDetails: {
+  headerDetails: {
     flexDirection: "row",
+    fontFamily: "sf-rounded-heavy",
     justifyContent: "space-between",
     alignItems: "flex-end"
   }

@@ -20,13 +20,18 @@ class AccountDetailsScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <comp.Card
+        {/* <comp.Card
+          cardName={this.state.cardName}
+          cardBalance={this.state.cardBalance}
+          accNumber={this.state.accNumber}
+          image={this.state.image}
+        /> */}
+        <comp.TransactionHeader
           cardName={this.state.cardName}
           cardBalance={this.state.cardBalance}
           accNumber={this.state.accNumber}
           image={this.state.image}
         />
-
         {/* <comp.Taskgroup /> */}
         <comp.TransactionList />
       </View>

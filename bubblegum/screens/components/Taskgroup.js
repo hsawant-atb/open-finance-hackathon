@@ -68,12 +68,14 @@ const styles = StyleSheet.create({
     width: 380,
     shadowOpacity: 1,
     elevation: 10,
-    borderRadius: 20
+    borderRadius: 20,
+    marginTop: 50
   },
   title: {
     fontSize: 28,
     fontWeight: "bold",
-    padding: 20
+    marginBottom: 5,
+    marginTop: 30
   },
   taskList: {
     padding: 10

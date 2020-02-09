@@ -154,6 +154,7 @@ const bart = [
   }
 ];
 
+// TODO: add props
 const transactions = lisa;
 
 const TransactionLineItem = props => {
