@@ -20,27 +20,18 @@ class ChildrenCarousel extends Component {
                     width={375}
                     animate={false}
                     hideIndicators={true} >
-                    <View style={styles.carousel}>
+                    <View style={styles.cc}>
                         <comp.Card id={global.c1id} />
                         <View style={styles.inner}>
                             <comp.TransactionList />
                         </View>
                     </View>
-                    <View style={styles.carousel}>
+                    <View style={styles.cc}>
                         <comp.Card id={global.c2id} />
                         <View style={styles.inner}>
                             <comp.TransactionList />
                         </View>
                     </View>
-                    {/* <View style={styles.c}>
-                        <Text>Page 1</Text>
-                    </View>
-                    <View style={styles.c}>
-                        <Text>Page 2</Text>
-                    </View>
-                    <View style={styles.c}>
-                        <Text>Page 3</Text>
-                    </View> */}
                 </Carousel>
             </View>
         );
@@ -55,8 +46,8 @@ const styles = StyleSheet.create({
         // justifyContent: 'center',
         backgroundColor: 'pink'
     },
-    carousel: {
-
+    cc: {
+        flex: 1
     },
     inner: {
         flex: 1,

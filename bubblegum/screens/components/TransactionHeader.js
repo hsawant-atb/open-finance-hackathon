@@ -48,16 +48,21 @@ class TransactionHeader extends Component {
 
   render() {
     return (
-      <TouchableOpacity style={styles.container}>
+      <View style={styles.container}>
         <View>
+          <Text style={styles.title}>Chequing Account</Text>
+        </View>
+        <Text style={styles.balance}>{this.state.cardBalance}</Text>
+        <Text style={styles.balanceLable}>Balance</Text>
+        {/* <View>
           <Text style={styles.title}>Chequing Account</Text>
           <Text style={styles.number}>Balance</Text>
           <View style={styles.headerDetails}>
-            <Text style={styles.balance}>{this.state.cardBalance}</Text>
+            
             <Text style={styles.number}>{this.state.accNumber}</Text>
           </View>
-        </View>
-      </TouchableOpacity>
+        </View> */}
+      </View>
     );
   }
 }
@@ -68,14 +73,6 @@ const styles = StyleSheet.create({
     //flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 3
-    },
-    shadowOpacity: 0.2,
-    shadowRadius: 5,
-    elevation: 5,
     marginHorizontal: 30,
     marginTop: 50,
     marginBottom: 50
@@ -83,17 +80,18 @@ const styles = StyleSheet.create({
   title: {
     color: "black",
     fontFamily: "sf-rounded-heavy",
-    fontSize: 42
+    fontSize: 30
   },
   balance: {
     color: "black",
     fontFamily: "sf-rounded-heavy",
-    fontSize: 20
+    fontSize: 45,
+    marginTop: 20
   },
-  number: {
-    color: "black",
+  balanceLable: {
+    //color: "black",
     fontFamily: "sf-rounded-heavy",
-    fontSize: 16
+    fontSize: 18
   },
   headerDetails: {
     flexDirection: "row",
