@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet, Button } from "react-native";
+import { View, Text, StyleSheet, Button, SafeAreaView } from "react-native";
 import axios from "axios";
 import { AsyncStorage } from "react-native";
 
@@ -14,7 +14,7 @@ class AccountDetailsScreen extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <comp.Card
           cardName={this.state.cardName}
           cardBalance={this.state.cardBalance}
@@ -37,7 +37,7 @@ class AccountDetailsScreen extends Component {
           />
         </View>
         <comp.Taskgroup />
-      </View>
+      </SafeAreaView>
     );
   }
 }

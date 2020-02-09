@@ -154,9 +154,6 @@ const bart = [
   }
 ];
 
-// TODO: add props
-const transactions = lisa;
-
 const TransactionLineItem = props => {
   return (
     <View style={styles.transactionCell}>
@@ -184,17 +181,31 @@ class TransactionList extends Component {
     super();
 
     this.state = {
-      data: []
+      child: 1
     };
   }
 
+  componentDidMount() {
+    this.setState({ child: this.props.child })
+  }
+
   render() {
+
+    // TODO: add props
+    let transactions = [];
+
+    if (this.state.child == 2) {
+      transactions = bart
+    } else {
+      transactions = lisa
+    }
+
     return (
       <View style={styles.container}>
         <Text style={styles.title}>Transactions</Text>
         <FlatList
           data={transactions}
-          showsHorizontalScrollIndicator={false}
+          showsVerticalScrollIndicator={false}
           renderItem={({ item }) => (
             <TransactionLineItem
               description={item.title}
@@ -211,14 +222,17 @@ export default TransactionList;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    paddingLeft: 30,
+    //backgroundColor: 'pink',
+    //flex: 1
     //backgroundColor: 'pink'
     // alignItems: 'center',
     // justifyContent: 'center'
   },
   title: {
     fontFamily: "sf-rounded-heavy",
-    fontSize: 30
+    fontSize: 30,
+    marginTop: 20
   },
   transactionCell: {
     width: 320,

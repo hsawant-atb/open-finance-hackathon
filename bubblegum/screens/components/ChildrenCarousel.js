@@ -15,24 +15,60 @@ class ChildrenCarousel extends Component {
     render() {
         return (
             <View style={styles.container}>
+
                 <Carousel
-                    //width={Dimensions.get('window').width}
                     width={375}
                     animate={false}
-                    hideIndicators={true} >
-                    <View style={styles.cc}>
-                        <comp.Card id={global.c1id} />
+                    hideIndicators={false}
+                    indicatorOffset={-40}
+                >
+                    <View
+                        style={{
+                            width: 375,
+                            flex: 1,
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            backgroundColor: 'transparent',
+                        }}
+                    >
+                        <comp.Card child={1} />
                         <View style={styles.inner}>
-                            <comp.TransactionList />
+                            <comp.TransactionList child={1} />
                         </View>
                     </View>
-                    <View style={styles.cc}>
-                        <comp.Card id={global.c2id} />
+                    <View style={{
+                        width: 375,
+                        flex: 1,
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        backgroundColor: 'transparent',
+                    }}>
+                        <comp.Card child={2} />
                         <View style={styles.inner}>
-                            <comp.TransactionList />
+                            <comp.TransactionList child={2} />
                         </View>
                     </View>
                 </Carousel>
+
+
+
+                {/* <Carousel
+                    width={375}
+                    animate={false}
+                    hideIndicators={true} >
+                    <View>
+                        <comp.Card child={1}/>
+                        <View style={styles.inner}>
+                            <comp.TransactionList />
+                        </View>
+                    </View>
+                    <View>
+                        <comp.Card child={2} />
+                        <View style={styles.inner}>
+                            <comp.TransactionList />
+                        </View>
+                    </View>
+                </Carousel> */}
             </View>
         );
     }
@@ -44,13 +80,11 @@ const styles = StyleSheet.create({
         flex: 1,
         // alignItems: 'center',
         // justifyContent: 'center',
-        backgroundColor: 'pink'
-    },
-    cc: {
-        flex: 1
+        //backgroundColor: 'pink'
     },
     inner: {
         flex: 1,
-        alignContent: 'center'
+        alignContent: 'center',
+        paddingHorizontal: 25
     }
 });

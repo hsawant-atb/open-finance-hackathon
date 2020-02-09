@@ -61,14 +61,32 @@ class Card extends Component {
     }
 
     componentDidMount() {
-        //this.setState({child: this.props.child})
+
+        const cid = this.props.child
+        this.setState({ child: cid })
+
+
     }
 
     render() {
 
-        const pic = require(`../../assets/1.png`)
+        let cardDetails = []
+
+        if (this.state.child == 2) {
+            cardDetails = bart
+        } else {
+            cardDetails = lisa
+        }
+
+        let pic;
+        if (this.state.child == 2) {
+            pic = require(`../../assets/2.png`)
+        } else {
+            pic = require(`../../assets/1.png`);
+        }
         return (
-            <TouchableOpacity style={styles.container}>
+            <TouchableOpacity style={styles.container} 
+            onPress = {this.props.onPress}>
                 <LinearGradient
                     colors={["#CC2B5E", "#753A88"]}
                     style={{
@@ -87,10 +105,10 @@ class Card extends Component {
                             justifyContent: 'space-between'
                         }}
                     >
-                        <Text style={styles.name}>{this.state.cardName}</Text>
+                        <Text style={styles.name}>{cardDetails.label}</Text>
                         <View>
-                            <Text style={{color: 'white', fontSize:10, fontFamily:'sf-rounded-semibold'}}>Total Balance</Text>
-                            <Text style={styles.balance}>{this.state.cardBalance}</Text>
+                            <Text style={{ color: 'white', fontSize: 10, fontFamily: 'sf-rounded-semibold' }}>Total Balance</Text>
+                            <Text style={styles.balance}>{cardDetails.balance.amount}</Text>
                         </View>
                     </View>
                     <View
@@ -103,19 +121,9 @@ class Card extends Component {
                         <Image
                             style={{ width: 95, height: 95, borderRadius: 60 / 2 }}
                             resizeMode='contain'
-                            // style={{
-                            //     flex: 1,
-                            //     alignSelf: 'center',
-                            //     //marginTop: 80,
-                            //     resizeMode: 'contain',
-                            //     //width: Dimensions.get('screen').width,
-                            //     //backgroundColor: 'pink'
-                            //     // borderWidth: 1,
-                            //     // borderRadius: 75
-                            // }}
                             source={pic}
                         />
-                        <Text style={styles.number}>{this.state.accNumber}</Text>
+                        <Text style={styles.number}>{cardDetails.number}</Text>
                     </View>
                     {/* <View>
 
@@ -145,7 +153,7 @@ const styles = StyleSheet.create({
         shadowRadius: 5,
         elevation: 5,
         marginHorizontal: 30,
-        marginTop: 50
+        //marginTop: 50
     },
     name: {
         color: "white",

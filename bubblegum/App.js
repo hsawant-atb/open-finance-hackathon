@@ -10,6 +10,7 @@ import * as screens from "./screens/index";
 global.foo = "suhhhhhhh";
 
 /* DISBALE YELLOW BOX WARNING */
+console.disableYellowBox = true;
 
 const ParentStack = createStackNavigator(
   {

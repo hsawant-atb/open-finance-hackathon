@@ -51,15 +51,52 @@ class OverviewScreen extends Component {
                     >
                     </View>
                 </View>
-                <Text
+                <View
                     style={{
-                        fontFamily: 'sf-rounded-heavy',
-                        fontSize: 30,
-                        marginVertical: 25, 
-                        marginHorizontal: 20
-                    }}
-                >Childen</Text>
-                <comp.ChildrenCarousel />
+                        flex: 1,
+                        //backgroundColor: 'pink'
+                    }}>
+                    <Text
+                        style={{
+                            fontFamily: 'sf-rounded-heavy',
+                            fontSize: 30,
+                            //marginVertical: 25,
+                            marginHorizontal: 20
+                        }}
+                    >Childen</Text>
+                    <View style={{flex: 1, paddingTop: 20}}>
+                    <Carousel
+                            width={375}
+                            animate={false}
+                            hideIndicators={false}
+                            indicatorOffset={-40}
+                        >
+                            <View
+                                style={{
+                                    width: 375,
+                                    //flex: 1,
+                                    //justifyContent: 'center',
+                                    //alignItems: 'center',
+                                    backgroundColor: 'transparent',
+                                }}
+                            >
+                                <comp.Card child={1} onPress={()=> this.props.navigation.navigate('AccountDetails')}/>
+                                <View style={styles.inner}>
+                                    <comp.TransactionList child={1} />
+                                </View>
+                            </View>
+                            <View style={{
+                                width: 375,
+                                backgroundColor: 'transparent',
+                            }}>
+                                <comp.Card child={2} />
+                                <View style={styles.inner}>
+                                    <comp.TransactionList child={2} />
+                                </View>
+                            </View>
+                        </Carousel>
+                    </View>
+                </View>
             </SafeAreaView>
         );
     }
