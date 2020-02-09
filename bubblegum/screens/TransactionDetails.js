@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet, Button } from "react-native";
+import { Header, View, Text, StyleSheet, Button } from "react-native";
 
 import * as comp from "./components/index";
 
@@ -18,16 +18,19 @@ class TransactionDetails extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.buttonContainer}>
-          <Button title="Back" color="#753A88" />
-        </View>
-
         <comp.TransactionHeader
           cardName={this.state.cardName}
           cardBalance={this.state.cardBalance}
           accNumber={this.state.accNumber}
           image={this.state.image}
         />
+        <View style={styles.buttonContainer}>
+          <Button
+            title="Back"
+            color="#753A88"
+            onPress={() => this.props.navigation.navigate("AccountDetails")}
+          />
+        </View>
         <comp.TransactionList />
       </View>
     );

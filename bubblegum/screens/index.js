@@ -1,9 +1,11 @@
-import OverviewScreen from './OverviewScreen'
-import AccountDetailsScreen from './AccountDetailsScreen'
-import WelcomeScreen from './WelcomeScreen'
+import OverviewScreen from "./OverviewScreen";
+import AccountDetailsScreen from "./AccountDetailsScreen";
+import TransactionDetails from "./TransactionDetails";
+import WelcomeScreen from "./WelcomeScreen";
 
 module.exports = {
-    OverviewScreen,
-    AccountDetailsScreen,
-    WelcomeScreen
-}
+  OverviewScreen,
+  AccountDetailsScreen,
+  TransactionDetails,
+  WelcomeScreen
+};

@@ -28,16 +28,13 @@ class AccountDetailsScreen extends Component {
         />
         <View style={styles.buttonContainer}>
           {/* TODO: add border to button to match card border */}
-          <Button title="Transactions" color="#753A88" />
+          <Button
+            title="Transactions"
+            color="#753A88"
+            onPress={() => this.props.navigation.navigate("Transactions")}
+          />
         </View>
-        {/* <comp.TransactionHeader
-          cardName={this.state.cardName}
-          cardBalance={this.state.cardBalance}
-          accNumber={this.state.accNumber}
-          image={this.state.image}
-        /> */}
         <comp.Taskgroup />
-        {/* <comp.TransactionList /> */}
       </View>
     );
   }
