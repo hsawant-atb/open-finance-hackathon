@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Header, View, Text, StyleSheet, Button } from "react-native";
+import { Header, View, Text, StyleSheet, Button, SafeAreaView } from "react-native";
 
 import * as comp from "./components/index";
 
@@ -154,27 +154,43 @@ class ProgressDetails extends Component {
 
     // TODO: add props
     this.state = {
-      cardName: bart.label,
-      cardBalance: bart.balance.amount,
-      accNumber: bart.number,
-      goal: bart.account_attributes.goal,
-      spent: bart.account_attributes.spent,
-      total: bart.account_attributes.total,
+      cardName: lisa.label,
+      cardBalance: lisa.balance.amount,
+      accNumber: lisa.number,
+      goal: lisa.account_attributes.goal,
+      spent: lisa.account_attributes.spent,
+      total: lisa.account_attributes.total,
       category: categories
     };
   }
 
   componentDidMount() {
-    
+
   }
 
   render() {
     return (
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <View>
-          <Text style={styles.title}>Goals</Text>
+          <Text style={styles.title}>Spending Breakdown</Text>
           {/* // TODO: add for each of the categories */}
           <Text style={styles.header}>Categories</Text>
+          <View style={styles.headerDetails}>
+            <Text style={styles.textBlack}>Clothing...</Text>
+            <Text style={styles.textBlack}>$39.98</Text>
+          </View>
+          <View style={styles.headerDetails}>
+            <Text style={styles.textBlack}>Entertainment...</Text>
+            <Text style={styles.textBlack}>$14.99</Text>
+          </View>
+          <View style={styles.headerDetails}>
+            <Text style={styles.textBlack}>Food...</Text>
+            <Text style={styles.textBlack}>$54.84</Text>
+          </View>
+          <View style={styles.headerDetails}>
+            <Text style={styles.textBlack}>Other...</Text>
+            <Text style={styles.textBlack}>$1.99</Text>
+          </View>
           <Text style={styles.header}>Total</Text>
           <View style={styles.headerDetails}>
             <Text style={styles.textBlack}>Jan Earnings...</Text>
@@ -185,12 +201,12 @@ class ProgressDetails extends Component {
             <Text style={styles.textBlack}>{this.state.spent}</Text>
           </View>
           <View style={styles.headerDetails}>
-            <Text style={styles.textBlack}>Target Total...</Text>
+            <Text style={styles.textBlack}>Savings Goal...</Text>
             <Text style={styles.textBlack}>{this.state.goal}</Text>
           </View>
           <View style={styles.headerDetails}>
             <Text style={styles.textBlack}>Total...</Text>
-            <Text style={styles.textBlack}>{this.state.total}</Text>
+            <Text style={styles.textGreen}>{this.state.total}</Text>
           </View>
         </View>
         <View style={styles.buttonContainer}>
@@ -200,7 +216,7 @@ class ProgressDetails extends Component {
             onPress={() => this.props.navigation.navigate("AccountDetails")}
           />
         </View>
-      </View>
+      </SafeAreaView>
     );
   }
 }
@@ -209,9 +225,11 @@ export default ProgressDetails;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    width: 400
+    marginTop: 50,
+    marginHorizontal: 20
+    // alignItems: "center",
+    // justifyContent: "center",
+   // width: 400
   },
   buttonContainer: {
     marginBottom: 50,
@@ -226,17 +244,20 @@ const styles = StyleSheet.create({
   header: {
     color: "black",
     fontFamily: "sf-rounded-heavy",
-    fontSize: 34
+    fontSize: 35,
+    marginTop: 20
   },
   textBlack: {
     color: "black",
     fontFamily: "sf-rounded-heavy",
-    fontSize: 16
+    fontSize: 20,
+    marginVertical: 5
   },
   textGreen: {
     color: "green",
     fontFamily: "sf-rounded-heavy",
-    fontSize: 16
+    fontSize: 20,
+    marginVertical: 5
   },
   textRed: {
     color: "red",
@@ -247,6 +268,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     fontFamily: "sf-rounded-heavy",
     justifyContent: "space-between",
-    alignItems: "flex-end"
+    alignItems: "flex-end",
   }
 });

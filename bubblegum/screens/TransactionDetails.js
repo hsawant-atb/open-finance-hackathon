@@ -28,7 +28,7 @@ class TransactionDetails extends Component {
           <Button
             title="Back"
             color="#753A88"
-            onPress={() => this.props.navigation.goBack()}
+            onPress={() => this.props.navigation.navigate("Overview")}
           />
         </View>
         <comp.TransactionList />

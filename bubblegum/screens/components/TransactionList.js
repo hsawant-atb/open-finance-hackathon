@@ -9,148 +9,174 @@ const lisa = [
     date: "Jan 26th",
     title: "Movies",
     amount: "-$14.99",
-    category: "ENTERTAINMENT"
+    category: "ENTERTAINMENT",
+    color: '#D63031'
   },
   {
     date: "Jan 24th",
     title: "Weekly Allowance",
     amount: "$25.00",
-    category: "NONE"
+    category: "NONE",
+    color: 'green'
   },
   {
     date: "Jan 23rd",
     title: "Dishes",
     amount: "$10.00",
-    category: "NONE"
+    category: "NONE",
+    color: 'green'
   },
   {
     date: "Jan 23rd",
     title: "H&M",
     amount: "-$13.99",
-    category: "CLOTHING"
+    category: "CLOTHING",
+    color: '#D63031'
   },
   {
     date: "Jan 22nd",
     title: "Nandos",
     amount: "-$9.99",
-    category: "FOOD"
+    category: "FOOD",
+    color: '#D63031'
   },
   {
     date: "Jan 22nd",
     title: "Laundry",
     amount: "$15.00",
-    category: "NONE"
+    category: "NONE",
+    color: 'green'
   },
   {
     date: "Jan 19th",
     title: "McDonalds",
     amount: "-$8.99",
-    category: "FOOD"
+    category: "FOOD",
+    color: '#D63031',
+    color: 'green'
   },
   {
     date: "Jan 18th",
     title: "McDonalds",
     amount: "-$8.99",
-    category: "FOOD"
+    category: "FOOD",
+    color: '#D63031',
+    color: 'green'
   },
   {
     date: "Jan 17th",
     title: "Weekly Allowance",
     amount: "$25.00",
-    category: "NONE"
+    category: "NONE",
+    color: 'green'
   },
   {
     date: "Jan 14th",
     title: "Dishes",
     amount: "$25.00",
-    category: "NONE"
+    category: "NONE",
+    color: 'green'
   },
   {
     date: "Jan 14th",
     title: "Staples",
     amount: "-$1.99",
-    category: "OTHER"
+    category: "OTHER",
+    color: '#D63031'
   },
   {
     date: "Jan 11th",
     title: "Dominos",
     amount: "-$9.99",
-    category: "FOOD"
+    category: "FOOD",
+    color: '#D63031'
   },
   {
     date: "Jan 10th",
     title: "Weekly Allowance",
     amount: "$25.00",
-    category: "NONE"
+    category: "NONE",
+    color: 'green'
   },
   {
     date: "Jan 7th",
     title: "Nike",
     amount: "-$25.99",
-    category: "CLOTHING"
+    category: "CLOTHING",
+    color: '#D63031'
   },
   {
     date: "Jan 6th",
     title: "Dominos",
     amount: "-$11.99",
-    category: "FOOD"
+    category: "FOOD",
+    color: '#D63031'
   },
   {
     date: "Jan 3rd",
     title: "Seven Eleven",
     amount: "-$4.89",
-    category: "FOOD"
+    category: "FOOD",
+    color: '#D63031'
   },
   {
     date: "Jan 3rd",
     title: "Weekly Allowance",
     amount: "$25.00",
-    category: "NONE"
+    category: "NONE",
+    color: 'green'
   }
 ];
 
 const bart = [
   {
     date: "Jan 25th",
-    title: "EB Games",
+    title: "Candy Crush",
     amount: "-$83.98",
-    category: "ENTERTAINMENT"
+    category: "ENTERTAINMENT",
+    color: '#D63031'
   },
   {
     date: "Jan 24th",
     title: "Weekly Allowance",
     amount: "$25.00",
-    category: "NONE"
+    category: "NONE",
+    color: 'green'
   },
   {
     date: "Jan 17th",
     title: "Weekly Allowance",
     amount: "$25.00",
-    category: "NONE"
+    category: "NONE",
+    color: 'green'
   },
   {
     date: "Jan 14th",
     title: "Cleaning",
     amount: "$10.00",
-    category: "NONE"
+    category: "NONE",
+    color: 'green'
   },
   {
     date: "Jan 10th",
     title: "Weekly Allowance",
     amount: "$25.00",
-    category: "NONE"
+    category: "NONE",
+    color: 'green'
   },
   {
     date: "Jan 9th",
     title: "Cleaning",
     amount: "$10.00",
-    category: "NONE"
+    category: "NONE",
+    color: 'green'
   },
   {
     date: "Jan 3rd",
     title: "Weekly Allowance",
     amount: "$25.00",
-    category: "NONE"
+    category: "NONE",
+    color: 'green'
   }
 ];
 
@@ -159,7 +185,11 @@ const TransactionLineItem = props => {
     <View style={styles.transactionCell}>
       <View style={styles.rowTitle}>
         <Text style={styles.rowText}>{props.description}</Text>
-        <Text style={styles.rowText}>{props.amount}</Text>
+        <Text style={{
+          fontFamily: "sf-rounded-heavy",
+          fontSize: 20,
+          color: `${props.color}`
+        }}>{props.amount}</Text>
       </View>
       <View>
         <Text
@@ -212,6 +242,7 @@ class TransactionList extends Component {
               description={item.title}
               amount={item.amount}
               date={item.date}
+              color={item.color}
             />
           )}
         />
