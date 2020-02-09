@@ -5,7 +5,6 @@ module.exports = {
   c1id: "a9213f5d-bfc8-487f-8242-0789bbcc2c20",
   c2id: "c9c18d5e-8af0-416b-9693-639bc0eb8826",
   getAccounts,
-  getAccountById,
   getTransactions
 };
 
@@ -31,118 +30,7 @@ function getAccounts() {
     }
   ];
 }
-function getAccountById(id) {
-  let accountById = {
-    "c9c18d5e-8af0-416b-9693-639bc0eb8826": {
-      id: "c9c18d5e-8af0-416b-9693-639bc0eb8826",
-      bank_id: "3056a117b6bf9e42fb96b02d3513a66",
-      label: "Bart Simpson",
-      number: "1532074537",
-      owners: [
-        {
-          id: "3056a117b6bf9e42fb96b02@localhost",
-          provider: "http://127.0.0.1",
-          display_name: "3056a117b6bf9e42fb96b02"
-        }
-      ],
-      product_code: "Child",
-      balance: {
-        currency: "CAD",
-        amount: "-160.00"
-      },
-      account_routings: [
-        {
-          scheme: "OBP",
-          address: "UK123456"
-        }
-      ],
-      views_basic: [
-        {
-          id: "owner",
-          short_name: "Owner",
-          description: "Owner View",
-          is_public: false
-        }
-      ],
-      account_attributes: [],
-      tags: []
-    },
-    "a9213f5d-bfc8-487f-8242-0789bbcc2c20": {
-      id: "a9213f5d-bfc8-487f-8242-0789bbcc2c20",
-      bank_id: "3056a117b6bf9e42fb96b02d3513a66",
-      label: "Lisa Simpson",
-      number: "7797553652",
-      owners: [
-        {
-          id: "3056a117b6bf9e42fb96b02@localhost",
-          provider: "http://127.0.0.1",
-          display_name: "3056a117b6bf9e42fb96b02"
-        }
-      ],
-      product_code: "Child",
-      balance: {
-        currency: "CAD",
-        amount: "460.00"
-      },
-      account_routings: [
-        {
-          scheme: "OBP",
-          address: "UK123456"
-        }
-      ],
-      views_basic: [
-        {
-          id: "owner",
-          short_name: "Owner",
-          description: "Owner View",
-          is_public: false
-        }
-      ],
-      account_attributes: [],
-      tags: []
-    },
-    "c0849637-cd77-4f9d-8409-ed959dbc1093": {
-      id: "c0849637-cd77-4f9d-8409-ed959dbc1093",
-      bank_id: "3056a117b6bf9e42fb96b02d3513a66",
-      label: "Marge Simpson",
-      number: "2513842240",
-      owners: [
-        {
-          id: "3056a117b6bf9e42fb96b02@localhost",
-          provider: "http://127.0.0.1",
-          display_name: "3056a117b6bf9e42fb96b02"
-        }
-      ],
-      product_code: "AC",
-      balance: {
-        currency: "CAD",
-        amount: "700.00"
-      },
-      account_routings: [
-        {
-          scheme: "OBP",
-          address: "UK123456"
-        }
-      ],
-      views_basic: [
-        {
-          id: "owner",
-          short_name: "Owner",
-          description: "Owner View",
-          is_public: false
-        }
-      ],
-      account_attributes: [],
-      tags: []
-    }
-  };
-  const account = accountById[id];
-  if (!account) {
-    return "an error";
-  } else {
-    return account;
-  }
-}
+
 function getTransactions(id) {
   let transactions = {
     "c9c18d5e-8af0-416b-9693-639bc0eb8826": {

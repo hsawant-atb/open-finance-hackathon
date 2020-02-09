@@ -36,7 +36,7 @@ const lisa = [
     title: "Garbage"
   }
 ];
-// TODO: clean
+// TODO: add props
 let taskGroups = lisa;
 
 class TaskGroup extends Component {
@@ -44,15 +44,10 @@ class TaskGroup extends Component {
     super(props);
   }
 
-  componentDidMount() {
-    // TODO: add props
-    // taskGroups = lisa;
-  }
-
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.title}>Grades</Text>
+        <Text style={styles.title}>Tasks</Text>
         <FlatList
           style={styles.taskList}
           data={taskGroups}

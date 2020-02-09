@@ -7,44 +7,54 @@ import axios from "axios";
 
 import { token } from "../global";
 
+let bart = {
+  label: "Bart Simpson",
+  number: "****4537",
+  balance: {
+    currency: "CAD",
+    amount: "-$3.98"
+  },
+  account_attributes: {
+    goal: "$10.00",
+    spent: "$83.98"
+  }
+};
+let lisa = {
+  label: "Lisa Simpson",
+  number: "****3652",
+  balance: {
+    currency: "CAD",
+    amount: "$30.00"
+  },
+  account_attributes: {
+    goal: "$30.00",
+    spent: "$110.99"
+  }
+};
+
+let marge = {
+  label: "Marge Simpson",
+  number: "****2240",
+  balance: {
+    currency: "CAD",
+    amount: "700.00"
+  },
+  account_attributes: {
+    goal: "$0.00",
+    spent: "$110.99"
+  }
+};
+
 class Card extends Component {
   constructor(props) {
     super(props);
 
+    // TODO: add props
     this.state = {
-      cardName: "",
-      cardBalance: "",
-      accNumber: ""
+      cardName: lisa.label,
+      cardBalance: lisa.balance.amount,
+      accNumber: lisa.number
     };
-  }
-
-  componentDidMount() {
-    //Get card name
-    //const token = "eyJhbGciOiJIUzI1NiJ9.eyIiOiIifQ.Oie-mWgcxEJ69LZhKOXa-QQg3yEIZyrLooDrCaXG3Ws"
-    //const id = 'a9213f5d-bfc8-487f-8242-0789bbcc2c20'
-    const id = this.props.id;
-    const url = `https://api.leapos.ca/obp/v4.0.0/my/banks/3056a117b6bf9e42fb96b02d3513a66/accounts/${id}/account`;
-
-    const httpConfig = {
-      headers: {
-        Authorization: `DirectLogin\ token=${token}`
-      },
-      method: "GET",
-      url: `${url}`
-    };
-
-    axios(httpConfig).then(res => {
-      console.log(res.data);
-
-      // const label = res.data.label
-      const label = res.data.label;
-      const number = res.data.number;
-      const balance = res.data.balance.amount;
-
-      this.setState({ cardName: label });
-      this.setState({ accNumber: number });
-      this.setState({ cardBalance: balance });
-    });
   }
 
   render() {

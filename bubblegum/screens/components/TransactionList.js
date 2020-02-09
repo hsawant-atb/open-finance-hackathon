@@ -1,150 +1,234 @@
 import React, { Component } from "react";
-import {
-    View,
-    Text,
-    StyleSheet,
-    FlatList,
-    AsyncStorage
-} from "react-native";
-import { token } from '../global'
+import { View, Text, StyleSheet, FlatList, AsyncStorage } from "react-native";
+import { token } from "../global";
 
-import axios from 'axios'
+import axios from "axios";
 
-const transactions = [
-    {
-        id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-        title: 'First Item',
-        date: "1st January",
-        category: "food",
-        amount: '25.00'
-    },
-    {
-        id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-        title: 'Second Item',
-        date: "1st January",
-        category: "clothing, entertainment, other",
-        amount: '25.00'
-    },
-    {
-        id: '58694a0f-3da1-471f-bd96-145571e29d72',
-        title: 'Third Item',
-        date: "1st January",
-        category: "entertainment",
-        amount: '25.00'
-    },
+const lisa = [
+  {
+    date: "Jan 26th",
+    title: "Movies",
+    amount: "-$14.99",
+    category: "ENTERTAINMENT"
+  },
+  {
+    date: "Jan 24th",
+    title: "Weekly Allowance",
+    amount: "$25.00",
+    category: "NONE"
+  },
+  {
+    date: "Jan 23rd",
+    title: "Dishes",
+    amount: "$10.00",
+    category: "NONE"
+  },
+  {
+    date: "Jan 23rd",
+    title: "H&M",
+    amount: "-$13.99",
+    category: "CLOTHING"
+  },
+  {
+    date: "Jan 22nd",
+    title: "Nandos",
+    amount: "-$9.99",
+    category: "FOOD"
+  },
+  {
+    date: "Jan 22nd",
+    title: "Laundry",
+    amount: "$15.00",
+    category: "NONE"
+  },
+  {
+    date: "Jan 19th",
+    title: "McDonalds",
+    amount: "-$8.99",
+    category: "FOOD"
+  },
+  {
+    date: "Jan 18th",
+    title: "McDonalds",
+    amount: "-$8.99",
+    category: "FOOD"
+  },
+  {
+    date: "Jan 17th",
+    title: "Weekly Allowance",
+    amount: "$25.00",
+    category: "NONE"
+  },
+  {
+    date: "Jan 14th",
+    title: "Dishes",
+    amount: "$25.00",
+    category: "NONE"
+  },
+  {
+    date: "Jan 14th",
+    title: "Staples",
+    amount: "-$1.99",
+    category: "OTHER"
+  },
+  {
+    date: "Jan 11th",
+    title: "Dominos",
+    amount: "-$9.99",
+    category: "FOOD"
+  },
+  {
+    date: "Jan 10th",
+    title: "Weekly Allowance",
+    amount: "$25.00",
+    category: "NONE"
+  },
+  {
+    date: "Jan 7th",
+    title: "Nike",
+    amount: "-$25.99",
+    category: "CLOTHING"
+  },
+  {
+    date: "Jan 6th",
+    title: "Dominos",
+    amount: "-$11.99",
+    category: "FOOD"
+  },
+  {
+    date: "Jan 3rd",
+    title: "Seven Eleven",
+    amount: "-$4.89",
+    category: "FOOD"
+  },
+  {
+    date: "Jan 3rd",
+    title: "Weekly Allowance",
+    amount: "$25.00",
+    category: "NONE"
+  }
 ];
 
-const TransactionLineItem = (props) => {
-    return (
-        <View
-            style={{
-                //backgroundColor: 'pink',
-                width: 320,
-                marginVertical: 10
-            }}
+const bart = [
+  {
+    date: "Jan 25th",
+    title: "EB Games",
+    amount: "-$83.98",
+    category: "ENTERTAINMENT"
+  },
+  {
+    date: "Jan 24th",
+    title: "Weekly Allowance",
+    amount: "$25.00",
+    category: "NONE"
+  },
+  {
+    date: "Jan 17th",
+    title: "Weekly Allowance",
+    amount: "$25.00",
+    category: "NONE"
+  },
+  {
+    date: "Jan 14th",
+    title: "Cleaning",
+    amount: "$10.00",
+    category: "NONE"
+  },
+  {
+    date: "Jan 10th",
+    title: "Weekly Allowance",
+    amount: "$25.00",
+    category: "NONE"
+  },
+  {
+    date: "Jan 9th",
+    title: "Cleaning",
+    amount: "$10.00",
+    category: "NONE"
+  },
+  {
+    date: "Jan 3rd",
+    title: "Weekly Allowance",
+    amount: "$25.00",
+    category: "NONE"
+  }
+];
+
+const transactions = lisa;
+
+const TransactionLineItem = props => {
+  return (
+    <View style={styles.transactionCell}>
+      <View style={styles.rowTitle}>
+        <Text style={styles.rowText}>{props.description}</Text>
+        <Text style={styles.rowText}>{props.amount}</Text>
+      </View>
+      <View>
+        <Text
+          style={{
+            fontFamily: "sf-rounded-semibold",
+            fontSize: 15,
+            color: "#a2a2a2"
+          }}
         >
-            <View
-                style={{
-                    flexDirection: 'row',
-                    justifyContent: 'space-between'
-                }}
-            >
-                <Text
-                    style={{
-                        fontFamily: 'sf-rounded-heavy',
-                        fontSize: 20
-                    }}
-                >{props.description}</Text>
-                <Text
-                    style={{
-                        fontFamily: 'sf-rounded-heavy',
-                        fontSize: 20
-                    }}
-                >${props.amount}</Text>
-            </View>
-            <View>
-                <Text 
-                style={{
-                    fontFamily: 'sf-rounded-semibold',
-                    fontSize: 15,
-                    color: '#a2a2a2'
-                }}
-                >{props.date}</Text>
-            </View>
-        </View>
-    )
-}
+          {props.date}
+        </Text>
+      </View>
+    </View>
+  );
+};
 
 class TransactionList extends Component {
+  constructor() {
+    super();
 
-    constructor() {
-        super()
+    this.state = {
+      data: []
+    };
+  }
 
-        this.state = {
-            data: []
-        }
-    }
-
-    componentDidMount() {
-        const id = 'a9213f5d-bfc8-487f-8242-0789bbcc2c20'
-        const url = `https://api.leapos.ca/obp/v4.0.0/my/banks/3056a117b6bf9e42fb96b02d3513a66/accounts/${id}`
-
-
-        const httpConfig = {
-            headers: {
-                'Authorization': `DirectLogin\ token=${token}`,
-            },
-            method: 'GET',
-            url: `${url}`
-        };
-
-
-        axios(httpConfig)
-            .then((res) => {
-                console.log(res.data['bank_id'])
-
-
-
-            })
-        // .catch((error) => {
-        //     console.log(error)
-        // }) 
-
-    }
-
-    render() {
-        return (
-            <View style={styles.container}>
-                <Text 
-                 style={{
-                    fontFamily: 'sf-rounded-heavy',
-                    fontSize: 30
-                }}
-                >Transactions</Text>
-                <FlatList
-                    data={transactions}
-                    showsHorizontalScrollIndicator={false}
-                    renderItem={({ item }) =>
-                        <TransactionLineItem
-                            description={item.title}
-                            amount={item.amount}
-                            date={item.date}
-                        />
-                    }
-
-                    keyExtractor={(item) => item.id}
-                />
-            </View>
-        );
-    }
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.title}>Transactions</Text>
+        <FlatList
+          data={transactions}
+          showsHorizontalScrollIndicator={false}
+          renderItem={({ item }) => (
+            <TransactionLineItem
+              description={item.title}
+              amount={item.amount}
+              date={item.date}
+            />
+          )}
+        />
+      </View>
+    );
+  }
 }
 export default TransactionList;
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        //backgroundColor: 'pink'
-        // alignItems: 'center',
-        // justifyContent: 'center'
-    }
+  container: {
+    flex: 1
+    //backgroundColor: 'pink'
+    // alignItems: 'center',
+    // justifyContent: 'center'
+  },
+  title: {
+    fontFamily: "sf-rounded-heavy",
+    fontSize: 30
+  },
+  transactionCell: {
+    width: 320,
+    marginVertical: 10
+  },
+  rowTitle: {
+    flexDirection: "row",
+    justifyContent: "space-between"
+  },
+  rowText: {
+    fontFamily: "sf-rounded-heavy",
+    fontSize: 20
+  }
 });
