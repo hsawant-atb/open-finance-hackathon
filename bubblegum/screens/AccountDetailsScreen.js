@@ -9,23 +9,48 @@ class AccountDetailsScreen extends Component {
   constructor(props) {
     super(props);
     console.log(props);
-    this.state = {};
+    this.state = {
+      cid: 0
+    };
   }
 
+  componentWillMount() {
+    const cid = this.props.navigation.getParam('cid')
+
+    //alert(cid)
+
+    this.setState({ cid })
+
+
+    //alert(this.state.cid)
+  }
+
+
   render() {
+
     return (
-      <SafeAreaView style={styles.container}>
-        <comp.Card
-          cardName={this.state.cardName}
-          cardBalance={this.state.cardBalance}
-          accNumber={this.state.accNumber}
-        />
+      <View style={styles.container}>
+        <View
+          style={{
+            marginTop: 60
+          }}
+        >
+          <comp.Card
+            child={this.state.cid}
+          />
+          <Button
+            title="Back"
+            color="#753A88"
+            onPress={() => this.props.navigation.goBack()}
+          />
+        </View>
+
         <View style={styles.buttonContainer}>
           {/* TODO: add border to button to match card border */}
           <Button
             title="Transactions"
             color="#753A88"
-            onPress={() => this.props.navigation.navigate("Transactions")}
+            onPress={() => this.props.navigation.navigate("Transactions", {cid: this.state.cid})}
           />
         </View>
         <View style={styles.buttonContainer}>
@@ -36,8 +61,8 @@ class AccountDetailsScreen extends Component {
             onPress={() => this.props.navigation.navigate("Progress")}
           />
         </View>
-        <comp.Taskgroup />
-      </SafeAreaView>
+        <comp.Taskgroup cid={this.state.cid}/>
+      </View>
     );
   }
 }

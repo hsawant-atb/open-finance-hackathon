@@ -150,15 +150,22 @@ class ProgressDetails extends Component {
       }
     });
 
+    console.log(categories)
+
     // TODO: add props
     this.state = {
-      cardName: lisa.label,
-      cardBalance: lisa.balance.amount,
-      accNumber: lisa.number,
-      goal: lisa.account_attributes.goal,
-      spent: lisa.account_attributes.spent,
-      total: lisa.account_attributes.total
+      cardName: bart.label,
+      cardBalance: bart.balance.amount,
+      accNumber: bart.number,
+      goal: bart.account_attributes.goal,
+      spent: bart.account_attributes.spent,
+      total: bart.account_attributes.total,
+      category: categories
     };
+  }
+
+  componentDidMount() {
+    
   }
 
   render() {

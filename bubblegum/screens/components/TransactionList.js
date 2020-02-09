@@ -181,11 +181,12 @@ class TransactionList extends Component {
     super();
 
     this.state = {
-      child: 1
+      child: 2
     };
   }
 
-  componentDidMount() {
+  componentWillMount() {
+    
     this.setState({ child: this.props.child })
   }
 

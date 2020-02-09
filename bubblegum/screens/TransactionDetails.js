@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Header, View, Text, StyleSheet, Button } from "react-native";
+import { Header, View, Text, StyleSheet, Button, SafeAreaView } from "react-native";
 
 import * as comp from "./components/index";
 
@@ -17,7 +17,7 @@ class TransactionDetails extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <comp.TransactionHeader
           cardName={this.state.cardName}
           cardBalance={this.state.cardBalance}
@@ -28,11 +28,11 @@ class TransactionDetails extends Component {
           <Button
             title="Back"
             color="#753A88"
-            onPress={() => this.props.navigation.navigate("AccountDetails")}
+            onPress={() => this.props.navigation.goBack()}
           />
         </View>
         <comp.TransactionList />
-      </View>
+      </SafeAreaView>
     );
   }
 }
@@ -42,7 +42,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
+    marginTop: 170
   },
   buttonContainer: {
     marginBottom: 50,

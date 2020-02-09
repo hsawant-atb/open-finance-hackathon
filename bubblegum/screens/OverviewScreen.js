@@ -64,8 +64,8 @@ class OverviewScreen extends Component {
                             marginHorizontal: 20
                         }}
                     >Childen</Text>
-                    <View style={{flex: 1, paddingTop: 20}}>
-                    <Carousel
+                    <View style={{ flex: 1, paddingTop: 20 }}>
+                        <Carousel
                             width={375}
                             animate={false}
                             hideIndicators={false}
@@ -80,7 +80,10 @@ class OverviewScreen extends Component {
                                     backgroundColor: 'transparent',
                                 }}
                             >
-                                <comp.Card child={1} onPress={()=> this.props.navigation.navigate('AccountDetails')}/>
+                                <comp.Card child={1} onPress={() => {
+                                    //this.props.navigation.setParams({cid: 1})
+                                    this.props.navigation.navigate('AccountDetails', {cid: 1})
+                                }} />
                                 <View style={styles.inner}>
                                     <comp.TransactionList child={1} />
                                 </View>
@@ -89,7 +92,7 @@ class OverviewScreen extends Component {
                                 width: 375,
                                 backgroundColor: 'transparent',
                             }}>
-                                <comp.Card child={2} />
+                                <comp.Card child={2} onPress={() => this.props.navigation.navigate('AccountDetails', { cid: 2 })} />
                                 <View style={styles.inner}>
                                     <comp.TransactionList child={2} />
                                 </View>
